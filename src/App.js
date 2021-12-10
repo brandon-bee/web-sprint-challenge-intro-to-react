@@ -23,16 +23,21 @@ const App = () => {
   useEffect(() => {
     axios.get('https://swapi.dev/api/people')
       .then(resp => {
-        console.log(resp.data);
+        setCharacters(resp.data);
       })
       .catch(err => {
         console.log(err);
       })
-  })
+  }, [])
 
   return (
     <div className="App">
       <h1 className="Header">Star Wars Characters</h1>
+      {
+        characters.map((char, idx) => {
+          return <Character key={idx} id={idx + 1} info={char} open={openDetails} />
+        })
+      }
     </div>
   );
 }
