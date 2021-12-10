@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import axios from 'axios';
 
 const StyledDetails = styled.div`
-  background-color: #f9e3ce;
+  background-color: #dd998e;
   margin: 0 auto;
   width: 50%;
   border: 5px solid #8e433c;
@@ -26,10 +26,10 @@ export default function Details({ current, close }) {
 
   return (
     <StyledDetails>
-      <h2>Details: {details.name}</h2>
       {
         details &&
         <>
+          <h2>Details: {details.name}</h2>
           <p>Born: {details.birth_year}</p>
           <p>Gender: {details.gender}</p>
           <p>Eye Color: {details.eye_color}</p>
