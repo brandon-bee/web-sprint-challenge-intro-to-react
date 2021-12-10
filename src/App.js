@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import './App.css';
 import axios from 'axios';
 import Character from './components/Character';
+import Details from './components/Details';
 
 
 const App = () => {
@@ -33,11 +34,14 @@ const App = () => {
   return (
     <div className="App">
       <h1 className="Header">Star Wars Characters</h1>
-      {
-        characters.map((char, idx) => {
-          return <Character key={idx} id={idx + 1} info={char} open={openDetails} />
-        })
-      }
+        {
+          characters.map((char, idx) => {
+            return <Character key={idx} id={idx + 1} info={char} open={openDetails} />
+          })
+        }
+        {
+          currentCharacter && <Details current={currentCharacter} close={closeDetails} />
+        }
     </div>
   );
 }
