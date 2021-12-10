@@ -2,7 +2,13 @@ import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import axios from 'axios';
 
-
+const StyledDetails = styled.div`
+  background-color: #f9e3ce;
+  margin: 0 auto;
+  width: 50%;
+  border: 5px solid #8e433c;
+  border-radius: 35%;
+`
 
 export default function Details({ current, close }) {
   const [details, setDetails] = useState(null);
@@ -19,8 +25,8 @@ export default function Details({ current, close }) {
   }, [current])
 
   return (
-    <>
-      <h2>Details: </h2>
+    <StyledDetails>
+      <h2>Details: {details.name}</h2>
       {
         details &&
         <>
@@ -34,6 +40,6 @@ export default function Details({ current, close }) {
         </>
       }
       <button onClick={close}>Close</button>
-    </>
+    </StyledDetails>
   )
 }
